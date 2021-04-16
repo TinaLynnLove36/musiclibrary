@@ -8,6 +8,8 @@
 }
 
 body {
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(100,130,159,1) 0%, rgba(103,56,96,1) 90% );
+    
+    background: linear-gradient(to right, #000046, #1cb5e0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 

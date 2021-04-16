@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {Component} from 'react';
+import NavBar from './Components/NavBar'
 import './App.css';
 //import CustomizedTables from './Components/Table'
 //import Search from "./Components/Search"
@@ -27,10 +28,9 @@ class App extends Component {
   render() {
   return (
     <span>
-      
-
-      
-    
+      <div>
+        <NavBar />
+      </div>
     </span>
   )
   }
