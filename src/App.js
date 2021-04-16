@@ -1,15 +1,44 @@
-import React from 'react'
+import axios from 'axios';
+import React, {Component} from 'react';
 import './App.css';
-import Search from "./Components/Search";
+//import CustomizedTables from './Components/Table'
+//import Search from "./Components/Search"
 
-const App = () => {
+class App extends Component {
+    state = {
+    music: null,
+  }
+
+
+  componentDidMount() {
+    
+    axios.get('http://www.devcodecampmusiclibrary.com/api/music').then(res => {
+     
+      this.setState({
+        music: res.data
+      })
+    });
+  }
+
+  musicSearchValue() {
+
+  }
+
+  render() {
   return (
     <span>
-      <div>
-        <Search />
-      </div>
+      
+
+      
+    
     </span>
-  );
+  )
+  }
+
 }
+
+
+
+
 
 export default App;
