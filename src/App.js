@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {Component} from 'react';
 import NavBar from './Components/NavBar'
+import SearchMusic from './Components/Search'
 import './App.css';
 //import CustomizedTables from './Components/Table'
 //import Search from "./Components/Search"
@@ -30,6 +31,10 @@ class App extends Component {
     <span>
       <div>
         <NavBar />
+      </div>
+      
+      <div className='searchStyle'>
+        <SearchMusic />
       </div>
     </span>
   )
