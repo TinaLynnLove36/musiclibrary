@@ -11,7 +11,7 @@ const NavBar = () => {
         <div>
             <AppBar position="fixed" style={{ background: '#f2f2f6'}}>
                 <Toolbar>
-                    <Typography variant="title" color='primary'>
+                    <Typography variant="title" color='primary' className='navText'>
                         Welcome to Your Digital Music Library
                     </Typography>
                 </Toolbar>

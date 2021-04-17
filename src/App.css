@@ -13,6 +13,51 @@ body {
     
 }
 
+.navText {
+    font-size: 1.5rem;
+   
+}
 .searchStyle {
     margin-top: 100px;
+}
+
+.form {
+    display: grid;
+    width: 30%;
+   margin-left: 550px;
+   margin-top: 150px;
+}
+
+.label {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.input {
+    font-size: 1.6rem;
+    padding: 0.5rem 0.5rem;
+    line-height: 2.8rem;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    padding: 1rem 1rem;
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+}
+
+.button:hover {
+    background-color: #07215d; 
+}
+
+.tableapp {
+    margin-top: 150px;
 }

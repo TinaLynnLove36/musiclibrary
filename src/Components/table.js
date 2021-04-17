@@ -1,4 +1,85 @@
 import React from 'react';
+import MaterialTable from 'material-table';
+import componentDidMount from '../App';
+
+
+export const Table=()=>{
+
+    const data= componentDidMount();
+
+    return (<div className='tableapp'>
+        <MaterialTable title='Material Table'
+        data={data}
+      //  columns={}
+        />
+    </div>)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -75,4 +156,4 @@ export default function CustomizedTables() {
       </Table>
     </TableContainer>
   );
-}
+} */
