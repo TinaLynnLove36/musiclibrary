@@ -2,30 +2,29 @@ import axios from 'axios';
 import React, {Component} from 'react';
 import NavBar from './Components/NavBar'
 import './App.css';
-import { Container, TableContainer, TableBody, TableHead, TableRow, TableCell } from '@material-ui/core';
+import { TableData} from './Components/Table'
+//import { Container, TableContainer, TableBody, TableHead, TableRow, TableCell } from '@material-ui/core';
 
 
 class App extends Component {
 
     state = {
-    music: [],
-    searchMusic: []
+    music: []
   }
+
   componentDidMount() {
-    
     axios.get('http://www.devcodecampmusiclibrary.com/api/music').then(res => {
-   
       this.setState({
         music: res.data
       })
     });
   }
 
- updateSearch = e => {
+updateSearch = e => {
    this.setState({value: e.target.value,
     music: this.filterList(e.target.value)
  });
-};
+}; 
 
 filterList = value => {
   return this.state.music.filter(item => {
@@ -36,56 +35,27 @@ filterList = value => {
       item.genre.toLowerCase().search(value.toLowerCase()) !== -1 ||
       item.releaseDate.toString().toLowerCase().search(value.toLowerCase()) !== -1);
   })
-}
-
+} 
 
   render() {
-const filterMusicList = this.state.music;
   return (
     <span>
       <div>
         <NavBar />
       </div>
-      
-      <div className='searchStyle'>
+   <div className='searchStyle'>
       <form className='form'>
             <label className='label' htmlFor='query'></label>
             <input className='input' type='text' name='query' placeholder='i.e. The Beatles' value={this.state.value} onChange={this.updateSearch}/>
             <button className='button' type='submit'>Search</button>
         </form>
-      </div>
-      <div className='styles'>
-        <Container>
-          <TableContainer>
-            <TableHead>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Title</TableCell>
-                <TableCell>Album</TableCell>
-                <TableCell>Artist</TableCell>
-                <TableCell>Genre</TableCell>
-                <TableCell>Release Date</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filterMusicList.map((item) => (
-                  <TableRow>
-                  <TableCell className='wordStyles'>{item.id}</TableCell>
-                  <TableCell>{item.title}</TableCell>
-                  <TableCell>{item.album}</TableCell>
-                  <TableCell>{item.artist}</TableCell>
-                  <TableCell>{item.genre}</TableCell>
-                  <TableCell>{item.releaseDate}</TableCell>
-                </TableRow>
-                ))}
-                </TableBody>
-          </TableContainer>
-        </Container>
       </div> 
+  <div>
+  <TableData rows={this.state.music} />
+  </div>
     </span>
   )
   }
 }
-
 export default App;
-
+ 
