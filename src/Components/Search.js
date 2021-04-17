@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function SearchMusic() {
+export default function Search() {
+
     return (
         <form className='form'>
             <label className='label' htmlFor='query'>Music Search</label>

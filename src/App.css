@@ -29,9 +29,11 @@ body {
 }
 
 .label {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: 0.2rem;
     text-transform: uppercase;
+    padding: 1.5rem;
+    margin-left: 100px;
 }
 
 .input {
@@ -58,6 +60,11 @@ body {
     background-color: #07215d; 
 }
 
-.tableapp {
-    margin-top: 150px;
+.styles {
+    margin-left: 305px;
+    padding: 5rem;
 }
+
+ .wordStyles {
+    font-size: 50px;
+} 

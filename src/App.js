@@ -1,19 +1,16 @@
 import axios from 'axios';
 import React, {Component} from 'react';
 import NavBar from './Components/NavBar'
-import SearchMusic from './Components/Search'
 import './App.css';
-import { Container, Paper, Box, Typography, TableContainer, Table, TableBody, TableHead, TableRow, TableCell } from '@material-ui/core';
-import { makeSytles } from '@material-ui/core/styles';
-//import CustomizedTables from './Components/Table'
-//import Search from "./Components/Search"
+import { Container, TableContainer, TableBody, TableHead, TableRow, TableCell } from '@material-ui/core';
+
 
 class App extends Component {
+
     state = {
-    music: []
+    music: [],
+    searchMusic: []
   }
-
-
   componentDidMount() {
     
     axios.get('http://www.devcodecampmusiclibrary.com/api/music').then(res => {
@@ -24,16 +21,26 @@ class App extends Component {
     });
   }
 
-  musicSearchValue() {
+ updateSearch = e => {
+   this.setState({value: e.target.value,
+    music: this.filterList(e.target.value)
+ });
+};
 
-  }
+filterList = value => {
+  return this.state.music.filter(item => {
+    return (
+      item.title.toLowerCase().search(value.toLowerCase()) !== -1 ||
+      item.album.toLowerCase().search(value.toLowerCase()) !== -1 ||
+      item.artist.toLowerCase().search(value.toLowerCase()) !== -1 ||
+      item.genre.toLowerCase().search(value.toLowerCase()) !== -1 ||
+      item.releaseDate.toString().toLowerCase().search(value.toLowerCase()) !== -1);
+  })
+}
 
-
-
-  
 
   render() {
-
+const filterMusicList = this.state.music;
   return (
     <span>
       <div>
@@ -41,9 +48,13 @@ class App extends Component {
       </div>
       
       <div className='searchStyle'>
-        <SearchMusic />
+      <form className='form'>
+            <label className='label' htmlFor='query'></label>
+            <input className='input' type='text' name='query' placeholder='i.e. The Beatles' value={this.state.value} onChange={this.updateSearch}/>
+            <button className='button' type='submit'>Search</button>
+        </form>
       </div>
-      <div>
+      <div className='styles'>
         <Container>
           <TableContainer>
             <TableHead>
@@ -57,29 +68,24 @@ class App extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {this.state.music.map((artist) => (
+              {filterMusicList.map((item) => (
                   <TableRow>
-                  <TableCell>{artist.id}</TableCell>
-                  <TableCell>{artist.title}</TableCell>
-                  <TableCell>{artist.album}</TableCell>
-                  <TableCell>{artist.artist}</TableCell>
-                  <TableCell>{artist.genre}</TableCell>
-                  <TableCell>{artist.releaseDate}</TableCell>
+                  <TableCell className='wordStyles'>{item.id}</TableCell>
+                  <TableCell>{item.title}</TableCell>
+                  <TableCell>{item.album}</TableCell>
+                  <TableCell>{item.artist}</TableCell>
+                  <TableCell>{item.genre}</TableCell>
+                  <TableCell>{item.releaseDate}</TableCell>
                 </TableRow>
                 ))}
                 </TableBody>
           </TableContainer>
         </Container>
-      </div>
+      </div> 
     </span>
   )
   }
 }
 
-
-
-
-
-
-
 export default App;
+
