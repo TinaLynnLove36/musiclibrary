@@ -22,7 +22,6 @@ class App extends Component {
 
 onSearchBoxChange = (event) =>{
   this.setState({searchBox: event.target.value, music: this.filterList(event.target.value)});
-
 }
 
  filterList = value => {
