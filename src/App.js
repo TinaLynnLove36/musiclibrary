@@ -13,13 +13,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/api/songs').then(res => {
+    axios.get('http://www.devcodecampmusiclibrary.com/api/music').then(res => {
       this.setState({
         music: res.data
       })
     });
   }
-
 
 onSearchBoxChange = (event) =>{
   this.setState({searchBox: event.target.value, music: this.filterList(event.target.value)});
