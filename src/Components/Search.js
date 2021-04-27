@@ -7,7 +7,7 @@ const SearchBox = ({searchBoxChange}) =>{
     <div className='searchStyle'>
       <form className='form'>
             <label className='label' htmlFor='query'></label>
-            <input className='input' type='text' name='query' placeholder='i.e. The Beatles'  onChange={searchBoxChange}/>
+            <input className='input' type='text' name='query' placeholder='i.e. Casting Crowns'  onChange={searchBoxChange}/>
             <button className='button' type='submit'>Search</button>
         </form>
       </div> 
